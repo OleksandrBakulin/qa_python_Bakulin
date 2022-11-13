@@ -18,4 +18,3 @@ else:
         number //= 10
 
     print(reversed_number)
-
