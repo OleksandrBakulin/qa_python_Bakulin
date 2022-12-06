@@ -13,7 +13,7 @@
 Удалить последнее число из списка
 '''
 # A = [1,2,3,4,5]
-# A.remove(5)
+# A.pop()
 # print(A)
 
 # TASK 3
@@ -48,11 +48,9 @@
 # a_list = []
 # c_list = []
 # for i_count in range(5):
-#     i_count += 1
 #     new_input = int(input("enter digit here: "))
 #     a_list.append(new_input)
-# for a_list[0 +1] in a_list:
-#         cou = a_list[+1]
+# for cou in a_list:
 #         if cou > 5:
 #             c_list.append(cou)
 # print(c_list)
@@ -82,7 +80,7 @@
 Пример:
 > 'Lorem 222 ipsum, 123 dolor 1 sit amet
 Количество чисел: 3'''
-
+#
 # num_counter = 0
 # user_input = input("enter your text here: ")
 # for finder in user_input.split():
