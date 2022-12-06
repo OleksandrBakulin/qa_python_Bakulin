@@ -1,0 +1,5 @@
+All the video input tests will be installed into RTS framework
+after build as well as other component tests.
+Each test directory in the host sub dir contains rts install script.
+It copies the necessary files for a specific test into the RTS directory structure.
+After that, rts can run tests in a regular way.
