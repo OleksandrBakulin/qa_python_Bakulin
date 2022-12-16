@@ -3,7 +3,6 @@
 Пример:
 is_power_of_two(256) # 'yes' потому что 2 в 8 степени это 256
 is_power_of_two(125) # 'no' потому что это не степень двойки'''
-
 def is_power_of_two(number):
     if not isinstance(number, int) or number <= 0:
         return "Wrong number"
