@@ -28,7 +28,7 @@ class Human:
 alex = Human("Alex","TheCodemaster",29,"+380971299","23Augusta")
 ivan = Human("Ivan","Smith",19,"+3809014141","Heroiv Truda")
 andrew = Human("Andrew","Levit",43 ,"+38097346235","Peremoha")
-#
+
 alex.get_info()
 ivan.get_info()
 andrew.get_info()
