@@ -1,13 +1,7 @@
 import pytest
 
 
-@pytest.fixture(scope="function", autouse=True)
-def func_fixture():
-    print('\nThe beginning of the fixture execution')
-    yield
-    print('\nThe end of the fixture execution')
-
-class FirstTest:
+class TestFirst:
 
 
     @pytest.mark.from_class
@@ -35,7 +29,3 @@ class FirstTest:
         print("\nfifth test exrcution")
         pass
 
-@pytest.mark.from_class
-def test_fifth():
-    print("\nfifth test exrcution")
-    pass

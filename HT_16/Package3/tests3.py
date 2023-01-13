@@ -1,13 +1,6 @@
 import pytest
 
 
-@pytest.fixture(scope="function")
-def third_fixture():
-    print('\nThe beginning of the fixture execution')
-    yield
-    print('\nThe end of the fixture execution')
-
-
 @pytest.mark.pack
 @pytest.mark.joint
 def test_one(third_fixture):
