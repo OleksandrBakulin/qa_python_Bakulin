@@ -24,7 +24,7 @@ class Triangle(Shape):
                 i -= 1
         else:
             print("the number should be more than 0")
-class Rectange(Shape):
+class Rectangle(Shape):
     def __init__(self,width : int, height :int ):
         self.width = width
         self.height = height
@@ -36,8 +36,4 @@ class Rectange(Shape):
         else:
             print("the number should be more than 0")
 
-a = Triangle(5)
-a.draw()
-print(" ")
-b = Rectange(4,5)
-b.draw()
+

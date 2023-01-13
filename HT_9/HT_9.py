@@ -54,30 +54,30 @@ import random
 # Дан файл в котором записан текст, необходимо вывести топ 5 строк которые чаще всего повторяются, пример:
 # 'в' - 20 раз, 'привет' - 10 раз, 'как' - 9 раз, 'у' - 7  'world' - 4
 '''NOT OPTIMIZED'''
-# a = open("task7.txt", 'r')
-# b = a.read()
-# i = 0
-# first = 0
-# second = 0
-# third = 0
-# fourth = 0
-# fifth = 0
-# count_list = {i: b.count(i) for i in b.split()}
-# for i in count_list.values():
-#     if i >= first:
-#        first = i
-#     elif i >= second:
-#         second = i
-#     elif i >= third:
-#         third = i
-#     elif i >= fourth:
-#         fourth = i
-#     elif i >= fifth:
-#         fifth = i
-# print(f'"{list(count_list.keys())[list(count_list.values()).index(first)]}" appears {first} times')
-# print(f'"{list(count_list.keys())[list(count_list.values()).index(second)]}" appears {second} times')
-# print(f'"{list(count_list.keys())[list(count_list.values()).index(third)]}" appears {third} times')
-# print(f'"{list(count_list.keys())[list(count_list.values()).index(fourth)]}" appears {fourth} times')
-# print(f'"{list(count_list.keys())[list(count_list.values()).index(fifth)]}" appears {fifth} times')
+a = open("task7.txt", 'r')
+b = a.read()
+i = 0
+first = 0
+second = 0
+third = 0
+fourth = 0
+fifth = 0
+count_list = {i: b.count(i) for i in b.split()}
+for i in count_list.values():
+    if i >= first:
+       first = i
+    elif i >= second:
+        second = i
+    elif i >= third:
+        third = i
+    elif i >= fourth:
+        fourth = i
+    elif i >= fifth:
+        fifth = i
+print(f'"{list(count_list.keys())[list(count_list.values()).index(first)]}" appears {first} times')
+print(f'"{list(count_list.keys())[list(count_list.values()).index(second)]}" appears {second} times')
+print(f'"{list(count_list.keys())[list(count_list.values()).index(third)]}" appears {third} times')
+print(f'"{list(count_list.keys())[list(count_list.values()).index(fourth)]}" appears {fourth} times')
+print(f'"{list(count_list.keys())[list(count_list.values()).index(fifth)]}" appears {fifth} times')
 
 
