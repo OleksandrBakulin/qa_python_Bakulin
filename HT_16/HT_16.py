@@ -15,13 +15,12 @@
 Для кожного пакунку мають бути свої фікстури.
 
 Запустити тести так, щоб виконались усі тести з мітками "from_class" та "pack"
- pytest -m "from_class or  pack" Package1/tests1.py Package2/tests2.py Package3/tests3.py
+ pytest -m "from_class or  pack"
 
 Запустити тести так, щоб виконались усі тести з усіма мітками крім "from_class"
- pytest -m "not from_class" Package1/tests1.py Package2/tests2.py Package3/tests3.py
+ pytest -m "not from_class"
 
 Запустити тести так, щоб виконались усі тести з мітками "pack" але виключити тести з міткою "rest
-pytest -m "pack and not rest" Package1/tests1.py Package2/tests2.py Package3/tests3.py
-
+pytest -m "pack and not rest"
 "'''
 
