@@ -41,7 +41,6 @@ def test_text_input(text_box):
     assert perm_addr_value == result_perm_addr
 
 '''XPATH TEST INVALID EMAIL TESS'''
-
 def test_invalid_mail_xpath(text_box):
     email = driver.find_element(By.XPATH, '//input[@id="userEmail"]')
     submit = driver.find_element(By.XPATH, '//button[@id="submit"]')
@@ -54,7 +53,6 @@ def test_invalid_mail_xpath(text_box):
     red_field = driver.find_element(By.XPATH, '//input[@class="mr-sm-2 field-error form-control"]')
     assert red_field
 '''CCS SELECTOR INVALID EMAIL TESS'''
-
 def test_invalid_mail_css(text_box):
 
     email = driver.find_element(By.CSS_SELECTOR, 'input[type="email"]')
