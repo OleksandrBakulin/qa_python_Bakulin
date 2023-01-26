@@ -14,12 +14,18 @@ EMAIL_INPUT = 'mymail@gmail.com'
 CURR_INPUT = "Rivne, Shevchenka"
 PERM_INPUT = "Kharkiv, Shevchenka"
 
+NAME_FIELD = '//input[@id="userName"]'
+EMAIL_FIELD = '//input[@id="userEmail"]'
+CURR_FIELD = '//textarea[@id="currentAddress"]'
+PERM_FIELD = '//textarea[@id="permanentAddress"]'
+SUBMIT_BUTT = '//button[@id="submit"]'
+
 def test_text_input(text_box):
-    name_field = driver.find_element(By.XPATH, '//input[@id="userName"]')
-    email_field = driver.find_element(By.XPATH, '//input[@id="userEmail"]')
-    current_address_field = driver.find_element(By.XPATH, '//textarea[@id="currentAddress"]')
-    permanent_address_field = driver.find_element(By.XPATH, '//textarea[@id="permanentAddress"]')
-    submit_button = driver.find_element(By.XPATH, '//button[@id="submit"]')
+    name_field = driver.find_element(By.XPATH, NAME_FIELD)
+    email_field = driver.find_element(By.XPATH, EMAIL_FIELD)
+    current_address_field = driver.find_element(By.XPATH, CURR_FIELD)
+    permanent_address_field = driver.find_element(By.XPATH, PERM_FIELD)
+    submit_button = driver.find_element(By.XPATH,SUBMIT_BUTT)
 
     name_field.send_keys(NAME_INPUT)
     email_field.send_keys(EMAIL_INPUT)
@@ -37,16 +43,27 @@ def test_text_input(text_box):
     result_perm_addr = permanent_address_field.find_element(By.XPATH, '//p[@id="permanentAddress"]').text.split(sep=":")[1]
 
 
-    assert NAME_INPUT == result_name
-    assert EMAIL_INPUT == result_email
-    assert CURR_INPUT == result_cur_addr
-    assert PERM_INPUT == result_perm_addr
+    if NAME_INPUT != result_name:
+        print("\nNames doesnt match")
+        i = False
+    elif EMAIL_INPUT != result_email:
+        print("\nemails doesn't match")
+        i = False
+    elif CURR_INPUT != result_cur_addr:
+        print("\nCurrent addresses doesn't match")
+        i = False
+    elif PERM_INPUT != result_perm_addr:
+        print("\nPermanent addresses doesn't match")
+        i = False
+    else:
+         i = True
 
+    assert i == True
 
 '''XPATH TEST INVALID EMAIL TESS'''
 def test_invalid_mail_xpath(text_box):
-    email = driver.find_element(By.XPATH, '//input[@id="userEmail"]')
-    submit = driver.find_element(By.XPATH, '//button[@id="submit"]')
+    email = driver.find_element(By.XPATH, EMAIL_FIELD)
+    submit = driver.find_element(By.XPATH, SUBMIT_BUTT)
 
     email.send_keys('mymailgmailom')
     submit.click()
