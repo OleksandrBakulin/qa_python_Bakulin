@@ -20,7 +20,6 @@ def test_check_box(check_box_page):
     checkbox_finder('Desktop')
     checkbox_finder('Office')
 
-
 def checkbox_finder(element_name: str,):
     tree_opener = driver.find_element(By.XPATH,'//button[contains(@class, "expand-all")]')
     tree_opener.click()
