@@ -16,11 +16,15 @@ driver = Chrome()
 def check_box_page():
     driver.get("https://demoqa.com/checkbox")
 
-def test_check_box(check_box_page):
-    checkbox_finder('Desktop')
-    checkbox_finder('Office')
+def test_checkboxes(check_box_page):
+    names = ("Commands","General")
+    for i in names:
+        checkbox_selected_text(i)
+        checkboxes_text = driver.find_element(By.XPATH, '//span[@class="text-success"]').text.split()
+        for j in checkboxes_text: #TODO:need to make it iterrate
+            assert i.lower() == j
 
-def checkbox_finder(element_name: str,):
+def checkbox_selected_text(element_name: str, ):
     tree_opener = driver.find_element(By.XPATH,'//button[contains(@class, "expand-all")]')
     tree_opener.click()
 
@@ -30,6 +34,15 @@ def checkbox_finder(element_name: str,):
     for e in box_list:
         checkbox_list_names.append(e.text)
         if e.text == element_name:
-            enabler = driver.find_element(By.XPATH, '//ancestor::label/span[@class="rct-checkbox"]')
+            enabler = driver.find_element(By.XPATH,
+            f'//span[@class="rct-title"][.="{element_name}"]'
+            f'//ancestor::span[@class="rct-text"]')
+            output_element = driver.find_element(By.XPATH, f'//span[@class="rct-title"][.="{element_name}"]')
+            output_element.location_once_scrolled_into_view
             enabler.click()
 
+
+        #
+        # driver.find_element(By.XPATH,
+        #                     f'//span[@class="rct-title"][.="{element_name}"]'
+        #                     f'//ancestor::span/button')
