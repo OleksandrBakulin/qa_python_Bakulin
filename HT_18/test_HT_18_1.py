@@ -27,7 +27,7 @@ def test_checkboxes(check_box_page):
 def checkbox_selected_text(element_name: str, ):
     tree_opener = driver.find_element(By.XPATH,'//button[contains(@class, "expand-all")]')
     tree_opener.click()
-
+    #TODO: Make opening one by one
     checkbox_list_names = []
     box_list = []
     box_list = driver.find_elements(By.XPATH, '//span[contains(@class,"rct-title")]')
@@ -42,7 +42,3 @@ def checkbox_selected_text(element_name: str, ):
             enabler.click()
 
 
-        #
-        # driver.find_element(By.XPATH,
-        #                     f'//span[@class="rct-title"][.="{element_name}"]'
-        #                     f'//ancestor::span/button')
