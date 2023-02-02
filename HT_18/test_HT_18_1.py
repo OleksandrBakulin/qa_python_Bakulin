@@ -4,6 +4,7 @@ Commands (Home-Desktop) та General (Home-Documents-Office).
 Обирати елементи потрібно однією функцією, по імені елеемнта.
 Як бонусне завдання: реалізувати метод так, щоб він міг прймати масив назв елементів як аргумент і розкривати список послідовно.
 '''
+import xmlrpc.client
 
 import pytest
 from selenium.webdriver import Chrome
@@ -17,17 +18,20 @@ def check_box_page():
     driver.get("https://demoqa.com/checkbox")
 
 def test_checkboxes(check_box_page):
-    names = ("Commands","General")
+    names = ["Commands","General"]
+    folder_tree = ["Home", "Desktop", "Documents", "WorkSpace", "Office", "Downloads"]
+    for i in folder_tree:
+        exp = driver.find_element(By.XPATH,
+                                  f'//span[@class="rct-text"][.="{i}"]/button[@aria-label="Toggle"]')
+        exp.click()
     for i in names:
         checkbox_selected_text(i)
-        checkboxes_text = driver.find_element(By.XPATH, '//span[@class="text-success"]').text.split()
-        for j in checkboxes_text: #TODO:need to make it iterrate
-            assert i.lower() == j
+    checkboxes_text = driver.find_element(By.XPATH, '//div[@id="result"]').text.split(":")[1].split()
+    results = list(map(lambda x: x.lower(), names))
+    assert results == checkboxes_text
 
-def checkbox_selected_text(element_name: str, ):
-    tree_opener = driver.find_element(By.XPATH,'//button[contains(@class, "expand-all")]')
-    tree_opener.click()
-    #TODO: Make opening one by one
+def checkbox_selected_text(element_name: str, enabled : bool = True):
+
     checkbox_list_names = []
     box_list = []
     box_list = driver.find_elements(By.XPATH, '//span[contains(@class,"rct-title")]')
@@ -39,6 +43,13 @@ def checkbox_selected_text(element_name: str, ):
             f'//ancestor::span[@class="rct-text"]')
             output_element = driver.find_element(By.XPATH, f'//span[@class="rct-title"][.="{element_name}"]')
             output_element.location_once_scrolled_into_view
-            enabler.click()
+            element_input = enabler.find_element(By.CSS_SELECTOR, "input[id]")
+
+            if enabled:
+                if not element_input.is_selected():
+                    enabler.click()
+            else:
+                if element_input.is_selected():
+                    enabler.click()
 
 
