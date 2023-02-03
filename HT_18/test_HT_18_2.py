@@ -40,4 +40,4 @@ def test_activate_disabled_radio_button():
     driver.execute_script(
         "arguments[0].removeAttribute('disabled','disabled')",rbutt_no_input)
     rbutt_no_label.click()
-    print(rbutt_no_input.is_selected())
+    print(f'\n{rbutt_no_input.is_selected()}')
