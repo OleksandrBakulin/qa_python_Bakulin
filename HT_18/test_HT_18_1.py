@@ -4,8 +4,6 @@ Commands (Home-Desktop) та General (Home-Documents-Office).
 Обирати елементи потрібно однією функцією, по імені елеемнта.
 Як бонусне завдання: реалізувати метод так, щоб він міг прймати масив назв елементів як аргумент і розкривати список послідовно.
 '''
-import xmlrpc.client
-
 import pytest
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.by import By
@@ -33,7 +31,6 @@ def test_checkboxes(check_box_page):
 def checkbox_selected_text(element_name: str, enabled : bool = True):
 
     checkbox_list_names = []
-    box_list = []
     box_list = driver.find_elements(By.XPATH, '//span[contains(@class,"rct-title")]')
     for e in box_list:
         checkbox_list_names.append(e.text)
