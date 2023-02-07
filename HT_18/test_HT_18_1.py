@@ -14,6 +14,8 @@ driver = Chrome()
 @pytest.fixture()
 def check_box_page():
     driver.get("https://demoqa.com/checkbox")
+    yield
+    driver.quit()
 
 def test_checkboxes(check_box_page):
     names = ["Commands","General"]
