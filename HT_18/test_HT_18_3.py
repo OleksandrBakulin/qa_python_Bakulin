@@ -17,9 +17,11 @@ from selenium.webdriver.support import expected_conditions
 driver = Chrome()
 
 
-@pytest.fixture()
+@pytest.fixture(scope="module")
 def dynamic_prop():
     driver.get("https://demoqa.com/dynamic-properties")
+    yield driver
+    driver.quit()
 
 @pytest.fixture()
 def id_cacth():
