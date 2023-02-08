@@ -33,8 +33,9 @@ def test_get_id(dynamic_prop,id_cacth):
     assert "random" in id_web_elemnt.text
 
 def test_wait_for_enable_element(dynamic_prop):
-    button_enable_five = driver.find_element(By.XPATH, '//button[@id="enableAfter"]')
-    WebDriverWait(dynamic_prop, timeout=6).until(expected_conditions.element_to_be_clickable(button_enable_five))
+    locator = (By.XPATH, '//button[@id="enableAfter"]')
+    WebDriverWait(dynamic_prop, timeout=6).until(expected_conditions.element_to_be_clickable(locator))
+    button_enable_five = driver.find_element(*locator)
     assert button_enable_five.is_enabled()
 
 def test_button_is_present(dynamic_prop):
