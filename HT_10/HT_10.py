@@ -1,28 +1,28 @@
 '''напишите функцию change(lst), которая принимает список и меняет местами его первый и последний элемент,
 в исходном списке минимум 2 элемента '''
-# def change(lst):
-#     if len(lst) < 2:
-#         print("enter at least 2 numbers")
-#     else:
-#         a = lst[0]
-#         b = lst[-1]
-#         lst = [b,a]
-#         return print(lst)
-#
-# change(lst=[1,2,3,5,47,7])
+def change(lst):
+    if len(lst) < 2:
+        print("enter at least 2 numbers")
+    else:
+        a = lst[0]
+        b = lst[-1]
+        lst = [b,a]
+        return print(lst)
+
+change(lst=[1,2,3,5,47,7])
 
 #  TASK 2
 '''Напишите функцию to_dict(lst), которая принимает аргумент в виде списка и возвращает словарь, 
 в котором каждый элемент списка является и ключом и значением.
 Предполагается, что элементы списка будут соответствовать правилам задания ключей в словарях.'''
-# def to_dict(lst):
-#     if not isinstance(lst, (list)):
-#         return print("not a list")
-#     dict = {el: el for el in lst}
-#     return print(dict)
-#
-# to_dict(lst=[2,3,5,4])
-# to_dict(lst=["First", 2, "new"])
+def to_dict(lst):
+    if not isinstance(lst, (list)):
+        return print("not a list")
+    dict = {el: el for el in lst}
+    return print(dict)
+
+to_dict(lst=[2,3,5,4])
+to_dict(lst=["First", 2, "new"])
 
 # TASK 3
 '''Напишите функцию sum_range(start, end), которая суммирует все целые числа от значения «start» до величины «end» включительно.

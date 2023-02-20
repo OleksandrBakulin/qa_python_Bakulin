@@ -1,0 +1,3 @@
+Task 2 - pytest -n 8 -m timed
+Task 3 -  pytest -n 8 -m timed --html=task3.html .
+
