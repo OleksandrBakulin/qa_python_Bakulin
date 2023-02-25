@@ -5,12 +5,13 @@ https://demoqa.com/links та закривати драйвер після те�
 import pytest
 from selenium.webdriver.common.by import By
 
-@pytest.fixture(scope='function', autouse=True)
+@pytest.fixture(scope='class', autouse=True)
 def links_page(driver):
     driver.get('https://demoqa.com/links')
     yield driver
 
-def test_home_links(links_page):
-    home_links = links_page.find_elements(By.PARTIAL_LINK_TEXT, 'Home')
-    assert len(home_links) == 2
+class TestHomeLinks():
+    def test_home_links(self,driver):
+        home_links = driver.find_elements(By.PARTIAL_LINK_TEXT, 'Home')
+        assert len(home_links) == 2
 
