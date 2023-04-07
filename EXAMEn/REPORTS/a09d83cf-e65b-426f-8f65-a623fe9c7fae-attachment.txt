@@ -1,0 +1,1 @@
+['Learning JavaScript Design Patterns', 'Speaking JavaScript', 'Programming JavaScript Applications', 'Eloquent JavaScript, Second Edition']

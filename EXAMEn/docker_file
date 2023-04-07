@@ -1,0 +1,25 @@
+FROM ubuntu
+
+# Встановлюємо необхідні пакети
+RUN apt-get update && \
+    apt-get install -y python3 python3-pip wget curl unzip libglib2.0-0 libnss3 libgconf-2-4 libfontconfig1
+
+# Встановлюємо Google Chrome та ChromeDriver
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
+    echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list && \
+    apt-get update && \
+    apt-get install -y google-chrome-stable
+
+# Завантажуємо та встановлюємо ChromeDriver
+RUN CHROME_DRIVER_VERSION=$(google-chrome-stable --version | awk -F'[ .]' '{print $3"."$4"."$5}') && \
+    wget -q "https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip" && \
+    unzip chromedriver_linux64.zip && \
+    rm chromedriver_linux64.zip && \
+    mv chromedriver /usr/local/bin/
+
+# Встановлюємо залежності Python
+pip install -r requirements.txt
+
+
+# Копіюємо файли тестів в контейнер
+COPY . /EXAMEn

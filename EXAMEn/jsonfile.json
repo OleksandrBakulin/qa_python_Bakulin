@@ -1,0 +1,14 @@
+{
+    "title": "The Catcher in the Rye",
+    "author": "nes",
+    "year": 1951,
+    "genre": "Fiction",
+    "rating": 4.0,
+    "is_available": true,
+    "characters": [
+        "Holden Caulfield",
+        "Phoebe Caulfield",
+        "Allie Caulfield"
+    ]
+
+}
