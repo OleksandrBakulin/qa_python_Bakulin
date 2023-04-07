@@ -13,5 +13,11 @@ Explicit wait - на кожен елемент виставляются окре
 2. Page object Pattern - це шаблон проектування, в якому елементи та функціонал усієї сторінки
 переносять у один класс. Цей класс містить усі необхідні методи для взаємодії зі сторінкою.
 
+Docker : docker build -f Dockerfile.selenium -t myselenim .
+
+	docker run myselenim
+
+
+
 8. - Усі тести багатопоточно та через аллюр :  pytest --alluredir=REPORTS -n 7
 
